@@ -1,14 +1,14 @@
 from time import sleep_ms
 import network
 import micropython
- from hcsr04 import HCSR04
- 
+from hcsr04 import HCSR04
+
 
 SSID = "embbubembbu"
 PASSWORD = "teretulemasta"
 wlan = None
 
-def connectWifi(ssid, passwd):  # Connect to wifi
+def connectWifi(ssid, passwd):  # Con§nect to wifi
 
     wlan = network.WLAN(network.STA_IF)  # creating a object
     wlan.active(True)  # Activating the interface
@@ -16,7 +16,6 @@ def connectWifi(ssid, passwd):  # Connect to wifi
     wlan.connect(ssid, passwd)  # connect wifi
     while(wlan.ifconfig()[0] == '0.0.0.0'):  # wait for connection
         sleep_ms(1000)
-        print(wlan.scan())
     sleep_ms(1000)  # wait for 1 second
     print("Wifi connected.")
 
