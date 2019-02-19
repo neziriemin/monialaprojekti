@@ -1,8 +1,8 @@
 import connect_wifi
-import distance_censor
+#import distance_censor
 
 def main():
     connect_wifi.main()
-    distance_censor.startReading()
+    #distance_censor.startReading()
 
 main()

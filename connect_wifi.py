@@ -1,29 +1,32 @@
 from time import sleep_ms
 import network
+import micropython
+ from hcsr04 import HCSR04
+ 
 
-SSID = "Jungle"
-PASSWORD = "pillu123"
+SSID = "embbubembbu"
+PASSWORD = "teretulemasta"
 wlan = None
 
-try:
-    
-    def connectWifi(ssid, passwd):  # Connect to wifi
+def connectWifi(ssid, passwd):  # Connect to wifi
 
-        wlan = network.WLAN(network.STA_IF)  # creating a object
-        wlan.active(True)  # Activating the interface
-        wlan.disconnect()  # Disconnect the last wifi connection
-        wlan.connect(ssid, passwd)  # connect wifi
-        while(wlan.ifconfig()[0] == '0.0.0.0'):  # wait for connection
-            sleep_ms(1)
-        sleep_ms(1000)  # hold on for 1 second
-        print("Wifi connected.")
+    wlan = network.WLAN(network.STA_IF)  # creating a object
+    wlan.active(True)  # Activating the interface
+    wlan.disconnect()  # Disconnect the last wifi connection
+    wlan.connect(ssid, passwd)  # connect wifi
+    while(wlan.ifconfig()[0] == '0.0.0.0'):  # wait for connection
+        sleep_ms(1000)
+        print(wlan.scan())
+    sleep_ms(1000)  # wait for 1 second
+    print("Wifi connected.")
 
-    def main():
+def main():
 
+    try:
         connectWifi(SSID, PASSWORD)
-         sensor = HCSR04(trigger_pin=16, echo_pin=0)
 
-    main()
+    except Exception as e:
+        print('Error %s' % e)
+    sensor = HCSR04(trigger_pin=16, echo_pin=0)
 
-except Exception as e:
-    print('Error %s' % e)
+main()
