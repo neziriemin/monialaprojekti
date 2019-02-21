@@ -8,4 +8,4 @@ def startReading():
     while True:
         distance = sensor.distance_cm()  # get the distance
         print('Distance:', distance, 'cm')
-        sleep_ms(1000)
+        sleep_ms(5000)
