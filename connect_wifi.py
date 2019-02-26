@@ -8,7 +8,7 @@ SSID = "embbubembbu"
 PASSWORD = "teretulemasta"
 wlan = None
 
-def connectWifi(ssid, passwd):  # Con§nect to wifi
+def connectWifi(ssid, passwd):  # Connect to wifi
 
     wlan = network.WLAN(network.STA_IF)  # creating a object
     wlan.active(True)  # Activating the interface
