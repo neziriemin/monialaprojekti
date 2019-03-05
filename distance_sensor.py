@@ -11,6 +11,7 @@ def startReading():
             distance = sensor.distance_cm()  # get the distance
         except Exception as e:
             print("Could not read the distance")
+        room = "5005"
         print('Distance:', distance, 'cm')
-        send_readings.send(distance)
+        send_readings.send(distance,room)
         sleep_ms(5000)

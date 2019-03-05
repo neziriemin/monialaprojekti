@@ -1,8 +1,9 @@
 import urequests
 
-def send(distance):
+def send(distance, room):
     distance = str(distance)
-    url = "https://eeromikkonen.com/sensor/distance.php?distance=" +distance
+    room = str(room)
+    url = "https://eeromikkonen.com/sensor/distance.php?distance=" + distance + "&room=" + room
     print(url)
     try:
         request = urequests.get(url)
